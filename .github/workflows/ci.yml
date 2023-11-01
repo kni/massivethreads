@@ -63,7 +63,21 @@ jobs:
       - name: Check versions
         run: |
           uname -a
-  
+          
+      - name: Patches (ubuntu)
+        if: ${{ startsWith(matrix.os, 'ubuntu') }}
+        run: patch -p1 < patches/glibc-2.34-compat.patch
+
+      - name: Patches (macos)
+        if: ${{ startsWith(matrix.os, 'macos') }}
+        run: |
+          patch -p1 < patches/macos.patch
+          autoreconf -fvi
+        
+      - name: Patches (windows)
+        if: ${{ startsWith(matrix.os, 'windows') }}
+        run: patch -p1 < patches/malloc.patch
+        
       - name: Build
         run: |
           ./configure
