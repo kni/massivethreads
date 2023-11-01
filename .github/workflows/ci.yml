@@ -51,7 +51,7 @@ jobs:
 
       - name: Patches (macos)
         if: ${{ startsWith(matrix.os, 'macos') }}
-        run: patch -p1 < patches/malloc.patch
+        run: echo patch -p1 < patches/malloc.patch
         
       - name: Build
         run: |
