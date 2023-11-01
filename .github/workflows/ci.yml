@@ -1,4 +1,4 @@
-name: CI C
+name: CI
 
 # Controls when the workflow will run
 on:
@@ -63,13 +63,7 @@ jobs:
       - name: Check versions
         run: |
           uname -a
-          echo
-          make -version
-          echo
-          ${{ matrix.cc }} --version
-          echo
-    
-
+  
       - name: Build
         run: |
           autoreconf -fvi
