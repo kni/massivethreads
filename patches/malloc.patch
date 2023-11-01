@@ -1,0 +1,25 @@
+diff --git a/src/myth_config.h b/src/myth_config.h
+index 91ade6c..cea79c6 100644
+--- a/src/myth_config.h
++++ b/src/myth_config.h
+@@ -39,7 +39,7 @@
+ #define INITIAL_STACK_ALLOC_UNIT 0
+ 
+ //Use malloc+freelist instead of mmap+freelist
+-#define ALLOCATE_STACK_BY_MALLOC 0
++#define ALLOCATE_STACK_BY_MALLOC 1
+ 
+ //Split desc and stack allocation
+ #define MYTH_SPLIT_STACK_DESC 1
+diff --git a/src/myth_misc.h b/src/myth_misc.h
+index f07214b..d6566e0 100644
+--- a/src/myth_misc.h
++++ b/src/myth_misc.h
+@@ -12,7 +12,6 @@
+ #include <stdint.h>
+ #include <unistd.h>
+ #include <time.h>
+-#include <sys/mman.h>
+ #include <sched.h>
+ 
+ #include "myth_config.h"
